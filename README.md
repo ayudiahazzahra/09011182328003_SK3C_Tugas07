@@ -70,6 +70,7 @@
 
 
 ## In the output, you should see that SSH traffic is allowed. If you don't have it listed, you need to allow incoming SSH connections. This command will help with this:
+### sudo ufw allow ssh
 
 ![7 6](https://github.com/user-attachments/assets/e84441a6-1ff5-45f7-9b35-fdffa7275d66)
 
@@ -80,6 +81,7 @@
 ## Once you complete all the previous steps, you can log into the server using the SSH protocol.
 ## To do this, you will need the server's IP address or domain name and the name of a user created on the server.
 ## In the terminal line, enter the command:
+### ssh username@IP_address
 
 ![7 7](https://github.com/user-attachments/assets/aff0b975-a6ef-4a67-a346-2c592ce051d1)
 
@@ -99,8 +101,64 @@
 ## The main OpenSSH server settings are stored in the main configuration file sshd_config (location: /etc/ssh). Before you start editing, you should create a backup of this file: 
 ### sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.initial
 
+
 ## If you get any errors after editing the configuration file, you can restore the original file without problems.
 ## After creating the backup, you can proceed to edit the configuration file. To do this, open it using the nano editor:
+### sudo nano /etc/ssh/sshd_config
+
+![7 9](https://github.com/user-attachments/assets/1f696dbf-59ed-4ccb-9881-dd178d931ebd)
+
+![7 10](https://github.com/user-attachments/assets/a60fc7a9-0b1f-4b2b-8990-afde77782865)
+
+![7 12](https://github.com/user-attachments/assets/081a3f88-226d-4ffb-a26a-19ca684fce23)
+
+
+## sudo:
+### Perintah ini digunakan untuk menjalankan perintah dengan hak akses superuser atau administratif. Mengedit file konfigurasi sistem seperti sshd_config memerlukan izin khusus, sehingga Anda harus menggunakan sudo.
+## nano:
+### Ini adalah editor teks berbasis terminal yang mudah digunakan. Nano memungkinkan pengguna untuk membuat dan mengedit file teks langsung dari command line. Ini adalah pilihan yang baik untuk pengguna yang mungkin tidak nyaman dengan editor teks yang lebih kompleks seperti vim atau emacs.
+## /etc/ssh/sshd_config:
+### >Ini adalah jalur lengkap ke file konfigurasi untuk OpenSSH Server:
+### >/etc: Direktori ini adalah tempat di mana banyak file konfigurasi sistem disimpan.
+### >ssh: Ini adalah subdirektori yang berisi file konfigurasi terkait dengan SSH.
+### >sshd_config: Ini adalah file konfigurasi utama untuk daemon SSH (sshd), yang mengatur berbagai pengaturan untuk server SSH. Ini mencakup konfigurasi tentang keamanan, port yang digunakan, metode autentikasi, dan banyak lagi.
+
+## After making all the changes in the main configuration file, save them and close the editor. 
+## Restart the service to make the changes take effect:
+
+![7 11](https://github.com/user-attachments/assets/e9154850-5d9a-4bd0-831b-fd1e29aed012)
+
+## sudo:
+### Perintah ini dijalankan dengan hak akses superuser atau administratif. Mengelola layanan sistem memerlukan izin khusus, sehingga Anda perlu menggunakan sudo untuk menjalankan perintah ini.
+## systemctl:
+### systemctl adalah alat yang digunakan untuk mengelola layanan dan unit lainnya di sistem berbasis systemd. Anda dapat menggunakan perintah ini untuk memulai, menghentikan, mengaktifkan, menonaktifkan, atau memeriksa status layanan.
+## restart:
+### Opsi ini memberi tahu systemctl untuk memulai ulang layanan. Ini berarti layanan akan dihentikan dan kemudian dimulai kembali. Restart diperlukan untuk menerapkan perubahan konfigurasi atau untuk memperbaiki masalah yang mungkin terjadi pada layanan tersebut.
+## ssh:
+### Ini merujuk pada layanan yang dioperasikan oleh OpenSSH, yang memungkinkan koneksi jarak jauh melalui protokol SSH. Nama layanan ini digunakan untuk mengidentifikasi layanan yang akan direstart.
+
+## If you have changed the port in the configuration file, you should connect using the new port: 
+### ssh -p port_number username@IP_address
+
+![7 13](https://github.com/user-attachments/assets/3abb8bcb-8c09-41d6-94e1-3f68e1d42c43)
+
+## ssh:
+### Ini adalah perintah untuk memulai sesi SSH. Protokol SSH digunakan untuk mengamankan komunikasi antara klien dan server melalui jaringan.
+## -p port_number:
+### Opsi -p diikuti oleh port_number digunakan untuk menentukan nomor port yang akan digunakan untuk koneksi SSH. Port default untuk SSH adalah 22, tetapi jika server SSH dikonfigurasi untuk menggunakan port yang berbeda, Anda harus menyertakan opsi ini.
+#### >Misalnya, jika server SSH Anda berjalan pada port 49532, Anda akan menggunakan -p 49532.
+## username:
+### Ini adalah nama pengguna yang akan digunakan untuk masuk ke server. Anda harus memiliki akun yang valid di server yang ingin Anda akses.
+## @:
+### Simbol ini digunakan untuk memisahkan nama pengguna dari alamat IP atau nama host. Ini adalah sintaks standar dalam banyak aplikasi jaringan.
+## IP_address:
+### Ini adalah alamat IP dari server atau komputer yang ingin Anda akses. Anda dapat menggunakan alamat IPv4 (misalnya, 10.8.143.150) atau alamat IPv6. Anda juga bisa menggunakan nama host (seperti example.com) jika DNS telah dikonfigurasi
+
+
+
+
+
+
 
 
 
