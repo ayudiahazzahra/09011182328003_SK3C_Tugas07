@@ -155,6 +155,10 @@
 ### Ini adalah alamat IP dari server atau komputer yang ingin Anda akses. Anda dapat menggunakan alamat IPv4 (misalnya, 10.8.143.150) atau alamat IPv6. Anda juga bisa menggunakan nama host (seperti example.com) jika DNS telah dikonfigurasi
 
 
+![7 14](https://github.com/user-attachments/assets/b8b22f87-6d5b-4759-b859-dd866c5e3094)
+![7 16](https://github.com/user-attachments/assets/554b1a64-ffbc-4df8-8e91-fdc10d523da3)
+![7 17](https://github.com/user-attachments/assets/c0927016-7313-4564-96c5-42056c3f73ff)
+
 
 
 
